@@ -1,0 +1,22 @@
+{
+  "name": "minesweeper",
+  "version": "1.0.0",
+  "description": "Odin Project Minesweeper implemenation by aldhsu",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aldhsu/minesweeper.git"
+  },
+  "keywords": [
+    "minesweeper"
+  ],
+  "author": "aldhsu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aldhsu/minesweeper/issues"
+  },
+  "homepage": "https://github.com/aldhsu/minesweeper#readme"
+}
