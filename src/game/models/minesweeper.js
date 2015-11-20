@@ -3,7 +3,6 @@ import _ from 'underscore';
 
 export default class Minesweeper {
   constructor(boardsize, bombNumber) {
-    console.log(boardsize);
     this.boardsize = boardsize;
     this.board = [];
 

@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
 export default class GameTile extends Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  componentWillReceiveProps() {
+    console.log('got props')
+  }
+  handleClick(event) {
+    this.props.tile.reveal();
+  }
   render() {
-    console.log(this.props.tile.bombCount)
     return (
-      <div className="tile">
-        x: {this.props.tile.x}
-        y: {this.props.tile.y}
-        count: {this.props.tile.bombCount}
+      <div className="tile" onClick={this.handleClick}>
+        {this.props.isRevealed ? this.props.tile.bombCount : ""}
       </div>
     );
   }

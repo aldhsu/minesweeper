@@ -25,12 +25,21 @@ export default class Tile {
     const value = _.compact(this.neighbours).reduce((acc, tile) => {
       return acc + tile.hasBomb;
     }, 0);
-    console.log(value);
 
     return value;
   }
 
   reveal() {
+    this.revealed = true;
+    if (this.bombCount === 0) {
+      this.neighbours
+        .filter((tile) => {
+          return !tile.revealed
+        }).forEach((tile) => {
+          tile.reveal();
+        });
+    }
+    return true;
   }
 
   // related positions
@@ -77,10 +86,10 @@ export default class Tile {
   }
 
   get neighbours() {
-    return [
+    return _.compact([
       this.topLeft, this.topMiddle, this.topRight,
       this.left, this.right,
       this.bottomLeft, this.bottomMiddle, this.bottomRight
-    ]
+    ]);
   }
 }
