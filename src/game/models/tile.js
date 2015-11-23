@@ -1,12 +1,13 @@
 import _ from 'underscore';
 
 export default class Tile {
-  constructor(x, y, board) {
+  constructor(x, y, board, channel) {
     this.x = x;
     this.y = y;
     this.board = board;
     this.revealed = false;
     this.isBomb = false;
+    this.channel = channel;
   }
   get isRevealed() {
     return this.revealed;
@@ -39,6 +40,7 @@ export default class Tile {
           tile.reveal();
         });
     }
+    this.channel.emit('reveal');
     return true;
   }
 

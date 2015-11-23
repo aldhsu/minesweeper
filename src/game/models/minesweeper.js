@@ -2,14 +2,15 @@ import Tile from './tile';
 import _ from 'underscore';
 
 export default class Minesweeper {
-  constructor(boardsize, bombNumber) {
+  constructor(boardsize, bombNumber, channel) {
     this.boardsize = boardsize;
     this.board = [];
+    this.channel = channel
 
     for (let x = 0; x < boardsize; x++) {
       let row = [];
       for (let y = 0; y < boardsize; y++) {
-        row.push(new Tile(x, y, this.board))
+        row.push(new Tile(x, y, this.board, this.channel))
       }
       this.board.push(row);
     }

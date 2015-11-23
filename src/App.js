@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     const rows = this.props.game.board.map((row, index) => {
       return (
-            <TileRow row={row} key={index} />
+            <TileRow row={row} key={index} channel={this.props.channel} />
             )
     });
 

@@ -2,8 +2,16 @@ import React from 'react';
 import { render } from 'react-dom';
 import App from './App';
 import Minesweeper from './game/models/minesweeper'
+import Events from 'events';
 
 // Start game loop
-const game = new Minesweeper(10, 1);
+const channel = new Events();
+const game = new Minesweeper(10, 20, channel);
 
-render(<App game={game} />, document.getElementById('root'));
+function renderGame() {
+  render(<App game={game} channel={channel}/>, document.getElementById('root'));
+}
+
+channel.on('reveal', renderGame);
+
+renderGame();
