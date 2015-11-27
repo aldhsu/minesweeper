@@ -7,10 +7,10 @@ export default class Minesweeper {
     this.board = [];
     this.channel = channel
 
-    for (let x = 0; x < boardsize; x++) {
+    for (let y = 0; y < boardsize; y++) {
       let row = [];
-      for (let y = 0; y < boardsize; y++) {
-        row.push(new Tile(x, y, this.board, this.channel))
+      for (let x = 0; x < boardsize; x++) {
+        row.push(new Tile(y, x, this.board, this.channel))
       }
       this.board.push(row);
     }

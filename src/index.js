@@ -6,7 +6,7 @@ import Events from 'events';
 
 // Start game loop
 const channel = new Events();
-const game = new Minesweeper(10, 20, channel);
+const game = new Minesweeper(10, 10, channel);
 
 function renderGame() {
   render(<App game={game} channel={channel}/>, document.getElementById('root'));
